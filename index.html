@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART Study-Life Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-section">
+                <h1 class="logo">SMART</h1>
+                <p class="tagline">Study-Life Planner</p>
+            </div>
+
+            <div class="header-right">
+                <button class="menu-btn" id="menuBtn">☰</button>
+                <nav class="desktop-nav">
+                    <a href="#" class="nav-link">STUDY</a>
+                    <a href="#" class="nav-link">EXERCISE</a>
+                    <a href="#" class="nav-link">HEALTH</a>
+                    <a href="#" class="nav-link">NOTES</a>
+                </nav>
+                <div class="user-section" id="userSection" style="display: none;">
+                    <span class="username" id="currentUsername"></span>
+                    <button class="logout-btn" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <button class="close-btn" id="closeBtn">✖</button>
+            <nav class="mobile-nav-links">
+                <a href="#" class="mobile-link" data-action="account">Account</a>
+                <a href="#" class="mobile-link" data-action="dashboard">SMART ROUTINE</a>
+                <a href="#" class="mobile-link" data-action="analysis">ANALYSIS</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Register/Login View -->
+        <div id="registerView" class="view active">
+            <div class="auth-container">
+                <h2 class="auth-title">CREATE ACCOUNT</h2>
+                <p class="auth-subtitle">The Study-Life Planner</p>
+
+                <div class="form-section">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="regUsername" placeholder="Enter Your Username" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Your Gmail</label>
+                        <input type="email" id="regEmail" placeholder="Enter Your Gmail" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Your Password</label>
+                        <input type="password" id="regPassword" placeholder="Enter Your Password" class="form-input">
+                    </div>
+                    <div class="button-group">
+                        <button class="btn-primary" id="createAccountBtn">CREATE ACCOUNT</button>
+                        <button class="btn-secondary" id="guestBtn">Guest</button>
+                    </div>
+                    <p class="message" id="regMessage"></p>
+
+                    <hr class="divider">
+
+                    <h3 class="login-title">Already have an account?</h3>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="loginUsername" placeholder="Username" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="loginPassword" placeholder="Password" class="form-input">
+                    </div>
+                    <button class="btn-primary full-width" id="loginBtn">LOGIN</button>
+                    <p class="message" id="loginMessage"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard View -->
+        <div id="dashboardView" class="view">
+            <!-- Toggle Buttons -->
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" id="routineBtn">SMART ROUTINE</button>
+                <button class="toggle-btn" id="analysisToggleBtn">ROUTINE ANALYSIS</button>
+            </div>
+
+            <!-- Task Input -->
+            <div class="card">
+                <div class="task-input-row">
+                    <div class="input-group flex-1">
+                        <label>Task Title</label>
+                        <input type="text" id="taskTitle" placeholder="Add Your Task Here" class="form-input">
+                    </div>
+                    <div class="input-group w-32">
+                        <label>Duration</label>
+                        <input type="text" id="taskDuration" placeholder="Add Timespan" class="form-input">
+                    </div>
+                    <div class="input-group w-32">
+                        <label>Category</label>
+                        <select id="taskCategory" class="form-input">
+                            <option value="study">Study</option>
+                            <option value="exercise">Exercise</option>
+                            <option value="health">Health</option>
+                        </select>
+                    </div>
+                    <button class="btn-add" id="addTaskBtn">Add Task</button>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-section">
+                    <span class="progress-label">Completion</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-percent" id="progressPercent">0%</span>
+                </div>
+            </div>
+
+            <!-- Study Tasks -->
+            <div class="card">
+                <h2 class="section-title">Your Study Routine</h2>
+                <p class="section-subtitle">Create a To-Do List for Your Study Sessions</p>
+                <div class="task-grid" id="studyTasks"></div>
+            </div>
+
+            <!-- Exercise Tasks -->
+            <div class="card">
+                <h2 class="section-title">Your Exercise Routine</h2>
+                <p class="section-subtitle">Be Disciplined and Maintain The Routine</p>
+                <div class="task-grid" id="exerciseTasks"></div>
+            </div>
+
+            <!-- Health Tasks -->
+            <div class="card">
+                <h2 class="section-title">Your Health Routine</h2>
+                <p class="section-subtitle">Keep Healthier and Light Food</p>
+                <div class="task-grid" id="healthTasks"></div>
+            </div>
+
+            <!-- Notes -->
+            <div class="card">
+                <h2 class="section-title">Your Notes</h2>
+                <textarea id="noteText" placeholder="Type Your Notes Here!" class="note-textarea"></textarea>
+                <div class="button-group">
+                    <button class="btn-save" id="saveNoteBtn">Save Note</button>
+                    <button class="btn-clear" id="clearNoteBtn">Clear</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis View -->
+        <div id="analysisView" class="view">
+            <!-- Toggle Buttons -->
+            <div class="toggle-buttons">
+                <button class="toggle-btn" id="routineBtn2">SMART ROUTINE</button>
+                <button class="toggle-btn active" id="analysisToggleBtn2">ROUTINE ANALYSIS</button>
+            </div>
+
+            <div class="card">
+                <h2 class="analysis-title">Routine Analysis</h2>
+                <p class="analysis-subtitle">Analyse your last week's Routine</p>
+
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <h3 class="analysis-card-title">PROGRESS</h3>
+                        <p class="analysis-card-text" id="analysisSummary">—</p>
+                    </div>
+                    <div class="analysis-card">
+                        <h3 class="analysis-card-title">TASK COMPLETION</h3>
+                        <p class="analysis-card-text" id="analysisCompletion">Completion: —</p>
+                    </div>
+                    <div class="analysis-card">
+                        <h3 class="analysis-card-title">SUGGESTIONS</h3>
+                        <div class="analysis-card-text" id="analysisSuggestions"></div>
+                    </div>
+                </div>
+
+                <button class="btn-analysis" id="runAnalysisBtn">Run Full Analysis</button>
+
+                <div class="analysis-output" id="analysisOutput" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; The Study-Life Planner - Career Development - 2025</p>
+            <p class="footer-credit">Designed by KVS HACKATHON TEAM - D1388JR1</p>
+        </footer>
+    </main>
+
+    <!-- Confirm Modal -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <h3 class="modal-title" id="modalTitle">Delete task?</h3>
+            <p class="modal-message" id="modalMessage"></p>
+            <div class="modal-buttons">
+                <button class="modal-btn-cancel" id="modalCancel">Cancel</button>
+                <button class="modal-btn-confirm" id="modalConfirm">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
