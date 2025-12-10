@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-transform: capitalize;
 }
 
 body {
@@ -774,3 +773,4 @@ body {
         transform: scale(0.8);
     }
 }
+
