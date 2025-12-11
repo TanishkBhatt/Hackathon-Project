@@ -207,9 +207,10 @@ body {
 .auth-title {
     color: yellow;
     font-size: 2rem;
+    line-height: 1;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 0px;
+    margin-bottom: 8px;
 }
 
 .auth-subtitle {
@@ -235,6 +236,7 @@ body {
 }
 
 .form-input {
+    height: 35px;
     width: 100%;
     padding: 0.75rem;
     border-radius: 0.375rem;
@@ -669,12 +671,13 @@ body {
 }
 
 .modal-content {
-    background: linear-gradient(135deg, #5703bdd3, #ff0099ea);
+    background: linear-gradient(to right, #8650b0, #2e0465);
     padding: 1.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
     max-width: 28rem;
-    width: 100%;
+    width: 80%;
+    height: 120px;
 }
 
 .modal-title {
@@ -737,8 +740,21 @@ body {
         font-size: 2rem;
     }
 
+    .tagline {
+        font-size: 12px;
+    }
+
     .task-input-row {
         flex-direction: column;
+    }
+
+    .menu-btn {
+        transform: scale(0.8);
+        margin-left: 0px;
+    }
+
+    #logoutBtn {
+        transform: scale(0.8);
     }
 
     .flex-1,
@@ -751,26 +767,11 @@ body {
     }
 }
 
-@media (max-width : 470px) {
-    header {
-        height: 15vh;
-
-    }
-
-    h1.logo {
-        transform: scale(0.8);
-    }
-
-    p.tagline {
-        transform: scale(0.8);
-    }
-
-    #menuBtn {
-        transform: scale(0.8);
-    }
-
-    #logoutBtn {
-        transform: scale(0.8);
+@media (max-width: 450px) {
+    .user-section {
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+        padding: 0px;
     }
 }
-
