@@ -40,4 +40,3 @@ This project is built with:
 - Jatin Bhatt
 
 ---
-- ---
