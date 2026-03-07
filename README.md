@@ -43,8 +43,7 @@ This project is built with:
 
 ## Links
 
-- Portfolio : https://tanishkbhatt.github.io/Portfolio/
+- Portfolio : https://tanishkbhatt.github.io/TanishkBhatt
 - GitHub : https://github.com/TanishkBhatt/
-- YouTube : https://www.youtube.com/@TanishkBhatt-x6w/
 
 ---
